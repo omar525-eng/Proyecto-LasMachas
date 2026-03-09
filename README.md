@@ -1,86 +1,15 @@
-# Primeros pasos en Solana
-![Banner](./images/SolanaBanner.jpg)
-Solana es una blockchain de capa 1, es decir, cuenta con su propia infraestructura y no depende de otras blockchains para funcionar. Se encuentra orientada al alto rendimiento, y fue creada para soportar aplicaciones descentralizadas a gran escala con costos mínimos y confirmaciones casi inmediatas. Su diseño prioriza la eficiencia en la ejecución y la paralelización de transacciones.
+# Las Machas Cloud - Inventario en Solana
 
-Rust es el lenguaje principal para desarrollar programas en Solana. A través de él se implementa la lógica on-chain utilizando el modelo de cuentas y programas de la red, permitiendo construir contratos inteligentes seguros, eficientes y altamente optimizables.
+Este es un contrato inteligente (Smart Contract) desarrollado en Rust utilizando el framework Anchor para la red de prueba (Devnet) de Solana. 
 
-Puedes comenzar dándole Fork a este repositorio (abajo te explicamos como 👇)
+El proyecto consiste en un sistema de inventario descentralizado (CRUD) diseñado a la medida para gestionar los lotes de salsas de UN negocio llamado "Las Machas".
 
-Asegúrate de clonar este repositorio a tu cuenta usando el botón **`Fork`**.
+## Funcionalidades (CRUD)
+El programa utiliza una cuenta PDA (Program Derived Address) única por usuario para almacenar los datos de forma segura. Contiene las siguientes instrucciones:
 
-![fork](./images/fork.png)
+* **`inicializar_inventario` (Create):** Crea la cuenta PDA vinculada a la billetera del usuario y le asigna un nombre a la bodega/inventario.
+* **`agregar_salsa` (Update):** Añade un nuevo lote de salsa al vector del inventario, guardando el Nombre, Nivel de Picor y Cantidad en Stock.
+* **`ver_inventario` (Read):** Imprime en los logs de la transacción la lista completa de las salsas registradas y sus detalles.
 
-* Puedes renombrar el repositorio a lo que sea que se ajuste con tu proyecto.
-
-## Solana Playground
-Solana Playground es un entorno de desarrollo online que permite escribir, compilar, desplegar y probar programas de Solana directamente desde el navegador, sin necesidad de instalar herramientas locales como Rust, Solana CLI o Anchor.
-
-![Playground](./images/playground.png)
-
-Para abrir el **Playground** solo es necesario dar clic 👉 [Aquí](https://beta.solpg.io)
-
-## Configuración del entorno
-
-Primero conectaremos el entorno con la devnet, lo que tambien procederá a la creación de una wallet. Para eso daremos clic en donde dice **Not Conected**:
-
-![playground1](./images/playground1.png)
-
-Saldrá la siguiente ventana donde daremos en el botón **Continue**:
-
-![wallet](./images/wallet.png)
-
-Como resultado se mostrará la siguiente información:
-
-![status](./images/status.png)
-
-* En verde: el estado de la conexión y el entorno al que se encuentra conectado
-
-* En amarillo: la la dirección de la wallet conectada
-
-* En azul: la cantidad de tokens en la wallet
-
-> ℹ️ ¿Quieres ver el ejemplo de un "Hola Mundo" en Solana?. Da clic aquí: 👉 [Ver Ejemplo](./build-deploy/README.md)
-
-> ℹ️ ¿Cuentas con una Wallet de [Phantom](https://phantom.com/) que deseas importar?, Da clic aquí para ver como hacerlo: 
-
-👉 [Como Importar una Wallet](./import-key-a-playground/README.md)
-
-## ¿Listo para empezar?
-
-El primer paso es hacer `fork` al repositorio. Ya con el repositorio en tu cuenta lo siguiente que debes hacer es entrar a la carpeta `proyecto` y obtener el `permalink`:
-
-![permalink](./images/permalink.png)
-
-El cual uniremos con el siguiente enlace en nuestro navegador de preferencia:
-
-```url
-https://beta.solpg.io/
-```
-
-Lo que nos dará algo parecido a:
-
-![url](./images/url.png)
-
-Al pulsar enter seremos enviados al `Solana Playground` con nuestro proyecto abierto:
-
-![pg](./images/pg.png)
-
-Para guardarlo solo damos clic en el boton `import` y asignamos un nombre:
-
-![import](./images/import.png)
-
-## ¿Como actualizo mi repositorio?
-
-Una vez que realices cambios o termines tu proyecto, es necesario que **copies todo el código**, ya con el código en el portapapeles nos dirigimos nuevamente a la carpeta proyecto de tu repositorio de github **donde se obtuvo el `permalink`**, donde entraremos al carpeta `src` y al archivo `lib.rs`:
-
-![edit](./images/edit.png)
-
-En `lib.rs` presionaremos el ícono en forma de lapiz (esquina superior derecha de la imagen 👆)
-
-Nuevamente seleccionamos todo el código pero ahora presionamos `ctrl + v` para pegar el código del `Playground`. Ya realizados los cambios presionamos el botón `Commit changes`:
-
-![commit](./images/commit.png)
-
-Nos aparecerá un menú de confirmación donde nuevamente presionamos el botón `Commit changes`:
-
-![commit2](./images/commit2.png)
+## Despliegue
+Este programa fue compilado y desplegado exitosamente en la Devnet de Solana mediante Solana Playground.
